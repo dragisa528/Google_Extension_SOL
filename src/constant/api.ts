@@ -1,0 +1,2 @@
+export const GOOGLE_SEARCH_API_KEY="AIzaSyBWX4Tlyc8SxuChGXtF3V7dfwO1pUaUvGM"
+export const GOOGLE_SEARCH_ENGINE_ID="aeab91ffeccc683dd"

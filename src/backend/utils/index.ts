@@ -1,0 +1,23 @@
+export const Api = {
+    host_url:'https://solguerrilla.com/',
+    base_url:"https://solguerrilla.com/api",
+    sign_up:"/auth/signup",
+    mail_verify:"/auth/mail_verify",
+    login:"/auth/signin",
+    submit_project:"/project/create_project",
+    create_profile:'/auth/create_profile',
+    update_profile:"/auth/update_profile",
+    get_profile:"/auth/profile",
+    websocket_base_url:"wss://solguerrilla.com/api/",
+    get_projects:"/project/get_projects",
+    support_project:"/project/support",
+    invite:"/invite",
+    getProjectForAnymouse:"/project/getProjectForAny",
+    logout:"/auth/logout",
+    getBack:"/auth/getBack",
+    forgot_mail:"/auth/forgot_mail",
+    getExtension:"/admin/getExtension",
+    getCards:"/admin/getCardList"
+}
+// host_url:'http://sol.dypole.com/',
+//     base_url:"http://sol.dypole.com/api",

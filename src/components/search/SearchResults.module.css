@@ -1,0 +1,15 @@
+.link {
+    @apply text-sm;
+    color: #093;
+    text-decoration: none;
+}
+
+.resultHeading {
+    @apply truncate text-lg text-blue-800 font-medium group-hover:underline pb-0;
+    line-height: 1.1;
+}
+
+.thumbnail {
+    max-width: 60px;
+    margin-right: theme("spacing.3");
+}

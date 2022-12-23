@@ -1,0 +1,9 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+#home_input:focus{
+    border:none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+  
