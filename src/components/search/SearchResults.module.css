@@ -10,6 +10,10 @@
 }
 
 .thumbnail {
-    max-width: 60px;
+    max-width: 160px;
     margin-right: theme("spacing.3");
+    display: block;
+    /* max-height:80px; */
+    width: auto;
+    height: auto;
 }

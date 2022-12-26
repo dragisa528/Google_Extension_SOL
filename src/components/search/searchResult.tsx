@@ -3,7 +3,7 @@ import styles from './SearchResults.module.css';
 import PaginationButtons from './pagenation';
 export default function SearchResult({results, searchType}:{results:any,searchType:any}){
     return(
-        <div  className='container mx-auto'>
+        <div className='mx-auto md:container lg:container xl:container'>
             <SearchMenu />
             <div className="mx-auto w-full px-3">
             <p className="text-gray-600 text-md mb-5">
@@ -36,7 +36,7 @@ export default function SearchResult({results, searchType}:{results:any,searchTy
                     </a>
                     <div className="flex">
                         { result.pagemap?.cse_thumbnail &&
-                            <img src={result.pagemap?.cse_thumbnail[0]?.src}   className={styles.thumbnail} />
+                            <img src={result.pagemap?.cse_thumbnail[0]?.src} className={styles.thumbnail} />
                         }
                         <div>
                             <p className="line-clamp-2 text-sm">{result.snippet}</p>
