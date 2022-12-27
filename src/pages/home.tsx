@@ -8,7 +8,6 @@ import { useRouterContext } from "../provider/router_context";
 import SearchEngine from "./search_engine";
 import SearchEngineIframe from "./search_engin_iframe";
 
-
 export enum SEARCH_TYPE{
     GOOGLE=0,
     BING=1,
@@ -58,7 +57,7 @@ const Home =()=>{
                     <p>{curItem.label}</p>
                 </div> */}
                 
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1  mt-3 mx-auto">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1  mt-3 mx-auto">1
                     {
                         cardList.map((item:any)=>{
                            return <CardItem title={item.title} img={item.img_url} link={item.link} source={item.source} summary={item.summary}/>

@@ -23,6 +23,8 @@ import { handleInvite } from './backend/utils/api';
 import ProjectDetail from './pages/projectDetail';
 import SearchEngineIframe from './pages/search_engin_iframe';
 import Forgot from './pages/forgot';
+
+
 function App() {
   const [theme,setTheme] = useState(DEFAULT_THEME);
   const {email} = useAuthContext();

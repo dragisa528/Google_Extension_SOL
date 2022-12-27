@@ -118,7 +118,7 @@ const Profile:React.FC<IProfile> = ({image,name,account_type,...props})=>{
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center">
                                     <img src={images.chchIcon} alt="chch icon" className="w-6 h-6" />
-                                    <p className="ml-3">Switch to Anymouse Mode</p>
+                                    <p className="ml-3">Switch to Anonymous Mode</p>
                                 </div>
                                 <div>
                                     <ToggleSwitch
