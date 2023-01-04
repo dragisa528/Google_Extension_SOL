@@ -7,6 +7,7 @@ import InputComp from "../components/input";
 import { useRouterContext } from "../provider/router_context";
 import SearchEngine from "./search_engine";
 import SearchEngineIframe from "./search_engin_iframe";
+import MyLeaderBoardAd from "../components/MyLeaderBoardAd";
 
 export enum SEARCH_TYPE{
     GOOGLE=0,
@@ -46,6 +47,8 @@ const Home =()=>{
         getCardList();
     },[])
     return(
+        <>
+        <MyLeaderBoardAd />
         <div className="w-full h-full  mx-auto flex justify-center items-center grow">
             <div className=" sm:w-full sm:px-4  h-fit flex flex-col justify-center w-full   ">
                 <div className="flex justify-center grow max-w-[500px] mx-auto w-full">
@@ -57,7 +60,7 @@ const Home =()=>{
                     <p>{curItem.label}</p>
                 </div> */}
                 
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1  mt-3 mx-auto">1
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1  mt-3 mx-auto">
                     {
                         cardList.map((item:any)=>{
                            return <CardItem title={item.title} img={item.img_url} link={item.link} source={item.source} summary={item.summary}/>
@@ -67,6 +70,7 @@ const Home =()=>{
             </div>
         
         </div>
+        </>
     )
 }
 export default Home;

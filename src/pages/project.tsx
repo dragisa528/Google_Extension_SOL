@@ -7,6 +7,8 @@ import { getProjectForAnymouse, getProjects } from "../backend/utils/api";
 import { useAuthContext } from "../provider/auth_provider";
 import { toast } from 'react-toastify';
 import { Api } from '../backend/utils/index';
+import MyLeaderBoardAd from "../components/MyLeaderBoardAd";
+
 export type IProject = {
     title:string
     progress:number
@@ -182,6 +184,8 @@ const Project =()=>{
         }
     },[projects,email,isAnymouse])
     return(
+        <>
+        <MyLeaderBoardAd />
        <div className="bg-white">
          <div className="container mx-auto pt-10">
              <h5 className="text-3xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
@@ -216,6 +220,7 @@ const Project =()=>{
             </div>
         </div>
        </div>
+       </>
     )
 }
 export default Project;
