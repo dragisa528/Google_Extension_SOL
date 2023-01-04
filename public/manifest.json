@@ -1,32 +1,27 @@
-{"name": "Sol Guerrilla",
-"description": "Help transition the world to a greener cleaner future with your internet search.  Create an account to support solar power projects, get updates on the most recent environment trends and submit solar power projects for funding.",
-"version": "1.0",
-"manifest_version": 3,
-"permissions" : ["tabs"],
-"optional_permissions": [
-  "unlimitedStorage"
-],
-"host_permissions": [
-  "https://solguerrilla.com/",
-],
-"optional_host_permissions": [
-  "*://*/*",
-],
-"chrome_url_overrides" : {
-  "newtab": "index.html"
-},
-"background": {
-    "service_worker": ["background.js"],
-    "type": "module" //optional
-    //"persistent": false
-  },
-  "browser_action": {
-    "default_icon": "icon-16.png"
-  },
-  "icons": {
-    "64": "icon-16.png"
-  },
-  "content_security_policy": {
-    "script-src 'self' 'sha256-WOdSzz11/3cpqOdrm89LBL2UPwEU9EhbDtMy2OciEhs='"
-  }
+{
+	"name": "Sol Guerrilla",
+	"description": "Help transition the world to a greener cleaner future with your internet search.  Create an account to support solar power projects, get updates on the most recent environment trends and submit solar power projects for funding.",
+	"version": "1.0",
+	"manifest_version": 3,
+	"permissions": [
+		"tabs"
+	],
+	"host_permissions": [
+		"https://pagead2.googlesyndication.com/"
+	],
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {
+		"default_icon": "icon-16.png"
+	},
+	"icons": {
+		"64": "icon-16.png"
+	},
+	"content_security_policy": {
+		"extension_pages": "default-src 'self'"
+	}
 }

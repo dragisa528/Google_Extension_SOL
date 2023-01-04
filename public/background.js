@@ -1,4 +1,4 @@
-chrome.browserAction.onClicked.addListener(function (tab) {
+chrome.action.onClicked.addListener((tab) => {
     chrome.tabs.create({
       url: 'https://solguerrilla.com/',
       selected: false,
