@@ -6,9 +6,6 @@
 	"permissions": [
 		"tabs"
 	],
-	"host_permissions": [
-		"https://pagead2.googlesyndication.com/"
-	],
 	"chrome_url_overrides": {
 		"newtab": "index.html"
 	},
@@ -20,8 +17,5 @@
 	},
 	"icons": {
 		"64": "icon-16.png"
-	},
-	"content_security_policy": {
-		"extension_pages": "default-src 'self'"
 	}
 }

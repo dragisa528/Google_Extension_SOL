@@ -31,7 +31,8 @@ const Login  = ()=>{
         console.log(res)
         if(!res) return;
         if(res.data.status){
-          setCookie('jwt',res.data.token);
+          // setCookie('jwt',res.data.token);
+          localStorage.setItem("jwt",res.data.token);
           setIsAuth(true);
         }else{
           setIsToastShow(true);

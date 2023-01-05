@@ -30,7 +30,7 @@ const http:  AxiosInstance  = axios.create({
 export const postBasicRequest = (url:string,data:any,callback:(error:string)=>void)=>{
     return http.post(url,data,{
       headers:{
-        "auth-token": getCookie('jwt'),
+        "auth-token": localStorage.getItem("jwt")
       }
     }).catch(error=>{
       if (error.response) {
@@ -51,7 +51,7 @@ export const postBasicRequest = (url:string,data:any,callback:(error:string)=>vo
 export const getBasicRequest = (url:string,data:any,callback:(error:string)=>void)=>{
   return http.post(url,data,{
     headers:{
-      "auth-token": getCookie('jwt'),
+      "auth-token": localStorage.getItem("jwt"),
     }
   }).catch(error=>{
     if (error.response) {
