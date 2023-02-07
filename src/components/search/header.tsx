@@ -19,11 +19,9 @@ export default function Header() {
                 <input type="text" ref={searchInputRef} id="home_input" className="flex-grow w-full outline-0 focus:outline-0 border-0 focus:border-0" value={search} onChange={(e:any) => setSearch(e.value)} />
                 <AiOutlineClose className="h-7 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125"
                 onClick={() => (searchInputRef.current.value = '')} />
-                { /* <MicrophoneIcon className="h-6 mr-3 hidden sm:inline-flex text-blue-500 border-l-2 pl-4 border-gray-300" /> */ }
                 <HiSearch className="h-6 text-blue-500  border-l-2 pl-1 w-[40px] h-[26px] border-gray-300" onClick={doSearch} />
                 <button hidden type="submit"  onClick={doSearch}>Search</button>
             </form>
-           { /* <Avatar className="ml-auto" url="http://placekitten.com/300/300" /> */ }
         </div>
     </header>
     )

@@ -15,7 +15,10 @@ const SearchEngineIframe = ()=>{
         const searchTypeQuery = imageSearch ? '&searchType=image' : '';
         console.log("searchTypeQuery",imageSearch)
        
-        let location = `https://customsearch.googleapis.com/customsearch/v1?key=${GOOGLE_SEARCH_API_KEY}&cx=${GOOGLE_SEARCH_ENGINE_ID}&q=${search}&start=${startIndex}${searchTypeQuery}`;
+        if(search == undefined || search.trim() == ""){
+            return;
+        }
+        let location = `https://www.googleapis.com/customsearch/v1/?key=${GOOGLE_SEARCH_API_KEY}&cx=${GOOGLE_SEARCH_ENGINE_ID}&q=${search}&start=${startIndex}${searchTypeQuery}`;
         console.log("location",location)
         const data =
         useDummyData
@@ -35,16 +38,16 @@ const SearchEngineIframe = ()=>{
         <Header />
         <div className="bg-white  overflow-y-auto grow ">
             <SearchResult results={results.data} searchType={results.isImageSearch?"image":"all"} />
-            <aside className="mt-10">
+            {/* <aside className="mt-10">
                 <ins className='adsbygoogle'
-                    data-ad-client= 'ca-pub-4765532588197727'
-                    data-ad-slot={8847437319}
+                    data-ad-client= 'ca-pub-5090203590318254'
+                    data-ad-slot='4652126453'
                     data-ad-format= 'auto'
                     data-adtest="on"
                     data-full-width-responsive="true"
                 >
                 </ins>
-            </aside>
+            </aside> */}
         </div>
         </>
     )

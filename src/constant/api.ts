@@ -1,2 +1,4 @@
-export const GOOGLE_SEARCH_API_KEY="AIzaSyBWX4Tlyc8SxuChGXtF3V7dfwO1pUaUvGM"
-export const GOOGLE_SEARCH_ENGINE_ID="aeab91ffeccc683dd"
+//export const GOOGLE_SEARCH_API_KEY="AIzaSyBWX4Tlyc8SxuChGXtF3V7dfwO1pUaUsvGM"
+// export const GOOGLE_SEARCH_ENGINE_ID="aeab91ffeccc683dd"
+export const GOOGLE_SEARCH_ENGINE_ID="579426856786b45e6"
+export const GOOGLE_SEARCH_API_KEY="AIzaSyAKMkxiHR_ChGavvVGHSHea___nXwxAQd0"

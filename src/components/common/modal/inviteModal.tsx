@@ -24,7 +24,7 @@ const InviteModal:React.FC<IInviteModal> = ({isShow,onClose,onClick})=>{
               id="email1"
               type="email"
               onChange={(e)=>setEmail(e.target.value)}
-              placeholder="name@flowbite.com"
+              placeholder="email@yourdomain"
               required={true}
               className="mb-4"
             />

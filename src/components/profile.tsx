@@ -19,12 +19,12 @@ export type IProfile ={
     name:string;
     account_type:string;
 }
-const projectData :Array<IProjectProfileItem> = [
-    {img:images.proProject1,title:"Domingo MM School",detail:"Solar installation in Dominican"},
-    {img:images.proProject2,title:"Costa Rica Town Hall",detail:"Solar installation at the town hall In Costa Rica."},
-    {img:images.proProject3,title:"Peruvian Home Power",detail:"Powering the market lights at Tharaka Market in Kenya."},
-    {img:images.proProject4,title:"Costa Rica Town Hall",detail:"Install solar panels for the family and Move them from Kerosene."}
-];
+// const projectData :Array<IProjectProfileItem> = [
+//     {img:images.proProject1,title:"Domingo MM School",detail:"Solar installation in Dominican"},
+//     {img:images.proProject2,title:"Costa Rica Town Hall",detail:"Solar installation at the town hall In Costa Rica."},
+//     {img:images.proProject3,title:"Peruvian Home Power",detail:"Powering the market lights at Tharaka Market in Kenya."},
+//     {img:images.proProject4,title:"Costa Rica Town Hall",detail:"Install solar panels for the family and Move them from Kerosene."}
+// ];
 const Profile:React.FC<IProfile> = ({image,name,account_type,...props})=>{
     const [curTab,setCurTab] = useState<number>(0);
     const [isToggle,setToggle]= useState<boolean>(false);
@@ -55,7 +55,7 @@ const Profile:React.FC<IProfile> = ({image,name,account_type,...props})=>{
     useOutsideAlerter(wrapperRef);
 
     return(
-        <div className="w-full max-h-[500px] overflow-y-auto px-0 bg-[#f5f0f0] pt-12 " ref={wrapperRef}>
+        <div className="w-full w-330 max-h-[500px] overflow-y-auto px-0 bg-[#f5f0f0] pt-12 " ref={wrapperRef} style={{maxWidth:'300px', minWidth:'300px'}}>
           
                 <Card className="border-0 relative" style={{border:"none !important"}}>
                 {!isAnymouse&&
@@ -73,17 +73,25 @@ const Profile:React.FC<IProfile> = ({image,name,account_type,...props})=>{
                     </div>
                 }
                 <div className={`border-t ${isAnymouse?"relative":"absolute  top-32 -translate-x-6 translate-y-6"}  w-[100%] border-gray-200  grid grid-cols-2`}>
-                    <a className="border-r border-gray-200   px-4 py-3 text-center" onClick={()=>setCurTab(0)}>Network</a>
-                    <a className=" text-center  px-4 w-full py-3" onClick={()=>setCurTab(1)}>Project</a>
+                    <a style={{cursor:'pointer'}} className="border-r border-gray-200 px-4 py-3 text-center" onClick={()=>setCurTab(0)}>Network</a>
+                    <a style={{cursor:'pointer'}} className=" text-center  px-4 w-full py-3" onClick={()=>setCurTab(1)}>Project</a>
                 </div>
             </Card>
             <Card className="mt-1">
                  <div className="flex justify-between items-center">
-                      <h3>{curTab?"Project":"Network"}</h3>
+                      <h3><b>{curTab?"Project":"Network"}</b></h3>
+                      {isAnymouse&&
+                        <Button
+                        onClick={()=>{setIsAnymouse(!isAnymouse)}}
+                        className=" "
+                        >
+                        login
+                        </Button>}
                       {!isAnymouse&&
                         <Button
                         onClick={()=>{handleLogout()}}
                         className=" "
+                        color="failure"
                         >
                         logout
                         </Button>}
@@ -91,44 +99,37 @@ const Profile:React.FC<IProfile> = ({image,name,account_type,...props})=>{
                 <p>{curTab?"List of projects your searches are supporting":"Your network and supporters."}</p>
                
                 { 
-                 
-
-                curTab==1&&(
-                   <div>
-                        {!isAnymouse&&
+                curTab==1 && (
+                   <div className="w-full">
+                        {   !isAnymouse &&
                         <div>
-                            
                             {
                             supportProjects?.map((item:any,index:any)=>{
+                                console.log(supportProjects, "Support~")
                                     return(
-                                        <ProjectProfileItem key={index} img={item.img_url} title={item.title} detail={item.detail} />
+                                        <ProjectProfileItem key={index} img={item.img_url} title={item.title} detail={item.description} allocate_budget={item.allocate_budget} budget={item.budget} total_power={item.total_power}/>
                                     )
                                 })
                             }
-                        </div>}
+                        </div>
+                        }
                    </div>
                 )}
                 {curTab==0 &&
                     <div className="w-full">
                         {
                             !isAnymouse&&
-                            <Button onClick={()=>setInviteShow(true)} color="success" pill={true} className="w-full mb-1">Invite People</Button>
+                            <Button onClick={()=>setInviteShow(true)} color="success" pill={true} size="xs" className="w-full mb-1">Invite People</Button>
                         }
+                        {
+                            isViewMore && <>
                         <Card>
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center">
-                                    <img src={images.chchIcon} alt="chch icon" className="w-6 h-6" />
-                                    <p className="ml-3">Switch to Anonymous Mode</p>
-                                </div>
-                                <div>
-                                    <ToggleSwitch
-                                        checked={isAnymouse}
-                                        label={""}
-                                        onChange={()=>{setIsAnymouse(!isAnymouse)}}
-                                    />
-                                </div>
-                                        
+                            {isAnymouse&&
+                            <div className="flex items-center">
+                                <img src={images.chchIcon} alt="chch icon" className="w-6 h-6" />
+                                <p className="ml-3">Anonymous Mode</p>
                             </div>
+                            }
                             {!isAnymouse&&
                                 <div className="flex justify-between items-center">
                                 <div className="flex items-center">
@@ -140,33 +141,27 @@ const Profile:React.FC<IProfile> = ({image,name,account_type,...props})=>{
                                 </div>
                             </div>}
                         </Card>
-                        {
-                            !isAnymouse&&
-                            <div>
-                            <Notification />
-                            <Connections />
-                            {isViewMore&&(
-                                <>
-                                <SearchEngin />
-                                <Projects />       
-                                <Climate />
-                                </>
-                            )}
-                        </div>
+                        {!isAnymouse && ( <>
+                        <Notification />
+                        <Connections />
+                        <SearchEngin />
+                        <Projects />       
+                        <Climate /> </>
+                        )} </>
                         }
                     </div>
                     
                 }
                 {
-                    !isAnymouse&&
+                    !isAnymouse && curTab==0 &&
                     <Button
                         onClick={()=>{setIsViewMore(!isViewMore)}}
                         pill={true}
                         className="w-[120px] mx-auto"
                         >
                         {isViewMore?"View Less":"View More"}
-                        </Button>
-                    }
+                    </Button>
+                }
             </Card>
             </div>
     )

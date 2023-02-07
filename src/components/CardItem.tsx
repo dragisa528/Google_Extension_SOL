@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Api } from '../backend/utils/index';
+
 export type ICard ={
     img:string;
     title:string;
@@ -7,6 +8,8 @@ export type ICard ={
     link:string;
     source:string;
 }
+
+
 const CardItem:React.FC<ICard> = ({img,title,summary,link,source})=>{
     const getLink = (link:string)=>{
         let data = link.trim();
@@ -16,21 +19,18 @@ const CardItem:React.FC<ICard> = ({img,title,summary,link,source})=>{
         }
         return data;
     }
+    const handleClick = (myLink:string) => () => {
+        window.open(myLink, '_blank');
+    }
     return(
-       <div className="p-2 flex justify-center">
-         <div className="flex bg-white border-1 rounded-lg p-2 justify-between items-center grow">
-            <div className="mr-6 w-[100px] h-[100px] flex justify-center  border-blue-300">
-                <img src={Api.base_url+"/admin/cardImg?img="+img} alt="cardImg" className="min-w-[100px] h-[100px] rounded-full"/>
-            </div>
-            <div className="grow">
+       <li className="pntile" onClick={handleClick(getLink(link))} style={{cursor:'pointer', borderRadius:'6px', overflow:'hidden', whiteSpace:'normal', color:'#fff', verticalAlign:'top', display:'inline-block', backgroundColor:'rgba(34, 34, 34, .9)', margin:'10px'}}>
+            <div className="p-2 w-[186px] xs:w-full" style={{whiteSpace: 'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>
                 <h3 className="mb-1 font-bold">{title}</h3>
                 <p className="mb-2 text-xs">{summary}</p>
-                <p className="text-xs"><b>Source:</b>{source}</p>
-                <div><b className="text-xs">Link:</b><a className="text-blue-500 text-xs" href={getLink(link)} target={"_blank"}>{link}</a></div>
-                
             </div>
-        </div>
-       </div>
+            <div className="w-[186px] h-[88px] xs:w-full justify-center  border-blue-300" style={{backgroundImage:`url(${Api.base_url+"/admin/cardImg?img="+img})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+            </div>
+       </li>
     )
 }
 export default CardItem;

@@ -45,7 +45,14 @@ const AuthProvider = ({children = null as any})=>{
             }
         })
     }
-  
+    const token = localStorage.getItem('jwt');
+    useEffect(()=>{
+        if(token){
+            setIsAnymouse(false);
+        }else{
+            setIsAnymouse(true);
+        }
+    },[token]);
     const getProfileInfo = ()=>{
         getProfile((error)=>{
             // toast.error(error);
@@ -78,6 +85,7 @@ const AuthProvider = ({children = null as any})=>{
             else setIsAccountInit(false);
         })
     }
+    
     useEffect(()=>{
             if(!isAnymouse){
                 getProfileInfo();

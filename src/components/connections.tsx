@@ -25,10 +25,10 @@ const Connections = ()=>{
     const {inviteShow,setInviteShow} = useAuthContext();
     return(
         <div>
-            <Card onClick={()=>{setIsDetail(!isDetail)}} >
+            <Card style={{cursor:'pointer'}} onClick={()=>{setIsDetail(!isDetail)}} >
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
-                        <CircularProgressbar className="w-12 h-12 " value={100} text={`${growMemMonth}`} />
+                        <CircularProgressbar className="w-8 h-8 " value={100} text={`${growMemMonth}`} />
                         <div className="ml-3">
                             <p className="text-gray-500 text-xs whitespace-nowrap ">Network Growth</p>
                             <p className="text-gray-500 text-sm ">Connections</p>
@@ -37,7 +37,6 @@ const Connections = ()=>{
                     </div>
                     <div className="justify-center w-18 flex-col">
                         <img src={images.manIcon} alt="" className="mx-auto  bg-[#03dac5] rounded-full p-1 py-2" />
-                        <p className="text-sm text-gray-200 whitespace-nowrap text-center">Tab to view</p>
                     </div>
                 </div>
                 

@@ -1,11 +1,7 @@
 import logo from "../assets/img/logo.png";
 import micIcon from "../assets/img/icons/mic-icon.png";
 import searchIcon from "../assets/img/icons/search-icon.svg";
-import Project1 from "../assets/img/project/project-1.png"
-import Project2 from "../assets/img/project/project-2.png"
-import Project3 from "../assets/img/project/project-3.png"
-import Project4 from "../assets/img/project/project-4.png"
-import ProjectTop from "../assets/img/project/project-top-img.png"
+import ProjectDefault from "../assets/img/project/project-default.png"
 import Profile from "../assets/img/profile/profile.png";
 import proProject1 from "../assets/img/profile/project/proPro-1.png";
 import proProject2 from "../assets/img/profile/project/proPro-2.png";
@@ -41,11 +37,7 @@ const images = {
     logo,
     micIcon,
     searchIcon,
-    Project1,
-    Project2,
-    Project3,
-    Project4,
-    ProjectTop,
+    ProjectDefault,
     Profile
 }
 export default images;

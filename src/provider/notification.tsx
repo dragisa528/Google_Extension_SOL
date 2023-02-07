@@ -71,7 +71,7 @@ const NotificationProvider = ({children = null as any})=>{
         break;
     case PARKET_TYPE.FOR_USER:
       if(jsonData.content.status){
-        console.log("for users information",jsonData.content);
+        console.log("for users information-------------------",jsonData.content);
         setGrowMemWeek(jsonData.content.grow_mem_week);
         setGrowMemMonth(jsonData.content.grow_members)
         setTotalMembers(jsonData.content.total_members);

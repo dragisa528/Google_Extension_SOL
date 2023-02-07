@@ -10,6 +10,7 @@ export type IVideoPlayer = {
 const Videoplayer:React.FC<IVideoPlayer> = ({url,height,width,image})=>{
     const [isPlayer,setIsplayer] = useState<boolean>(false);
     const [isShow,setIsShow] = useState<boolean>(false);
+    const [isExist, setIsExist] = useState<boolean>(false);
     const [_height,setHeight] = useState<string>("");
     const [_width,setWidth] = useState<string>("");
     const divRef = useRef<any>(null);
@@ -40,20 +41,24 @@ const Videoplayer:React.FC<IVideoPlayer> = ({url,height,width,image})=>{
         if(videoRef){
             
         }
+
+        if(url?.substring(url.length - 3) == "mp4" || url?.substring(url.length - 3) == "ogg"){
+            console.log(url, "usrl");
+            console.log(url?.substring(url.length - 4), "url-1");
+            setIsExist(true);
+        }
     },[videoRef])
     return(
         <div className=" w-full flex " ref={divRef} >
             <div className={`relative w-fit h-fit mx-auto my-auto`}  onMouseEnter={()=>setIsShow(true)}onMouseLeave={()=>setIsShow(false)} >
-            
                 {
-                    isShow&&
+                    isShow && isExist &&
                     <Button className="absolute z-50 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" onClick={()=>{setIsplayer((player)=>!player); handlePlay();}}>{isPlayer?"Stop":"Play"}</Button>
                 }
                 <video ref={videoRef} className={!isPlayer?"hidden":"block"} height={height} width={width} controls>
-                
-                    <source  src={url?url:""} type={"video/"+getType(url)} />
+                    <source src={url?url:""} type={"video/"+getType(url)} />
                 </video>
-                <img src={image} alt="" width={width} height={height} className={` rounded-lg ${!isPlayer?"block":"hidden"}`} />
+                <img src={image} alt="" width={width} height={height} className={` rounded-lg ${!isPlayer?"block":"hidden"}`} style={{backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}/>
             </div>
         </div>
     )

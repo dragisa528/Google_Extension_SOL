@@ -126,6 +126,18 @@ export const ForgotMail = (data:any,callback:(error:string)=>void)=>{
 export const getExtension = (callback:(error:string)=>void)=>{
   return postRequest(Api.getExtension,{},callback);
 }
+export const getTitle = (callback:(error:string)=>void)=>{
+  return postRequest(Api.getTitle,{},callback);
+}
 export const getCardListApi = (callback:(error:string)=>void)=>{
   return postRequest(Api.getCards,{},callback);
+}
+export const setNewPassword  = async (data:any, callback:(error:string)=>void)=>{
+  return postRequest(Api.set_password,data,callback);
+}
+export const AcceptRequest = async(data:any, callback:(error:string)=>void)=>{
+  return postRequest(Api.accept_invite,data,callback);
+}
+export const InviteSignUpRequst = async(data:any, callback:(error:string)=>void)=>{
+  return postRequest(Api.invite_sign_up,data,callback);
 }

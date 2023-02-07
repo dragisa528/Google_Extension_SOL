@@ -48,9 +48,9 @@ const Login  = ()=>{
       })
     }
     return(
-      <div className="container mx-auto flex justify-center min-h-screen max-screen-h">
-          <div className="max-w-[400px] mx-auto grow my-auto shadow-xl">
-            <Card className="w-full ">
+      <div className="lg:container md:container mx-auto flex justify-center min-h-screen max-screen-h w-full">
+          <div className="max-w-[350px] mx-auto grow my-auto shadow-xl">
+            <Card className="w-full">
               <h3 className="text-lg font-bold  ">Sign in</h3>          
                 <form className="flex flex-col gap-4" onSubmit={submitForm}>
                   <div>
@@ -78,7 +78,7 @@ const Login  = ()=>{
                     <TextInput
                       id="email1"
                       type="email"
-                      placeholder="name@flowbite.com"
+                      placeholder="email@yourdomain"
                       required={true}
                       onChange={(e)=>setEmail(e.target.value)}
                     />
@@ -104,16 +104,16 @@ const Login  = ()=>{
                           Remember me
                       </Label>
                       </div>
-                      <div className="flex justify-between grow">
-                      <a href="#" className="text-blue-400 lg:margin-right:50%  lg:margin-left:auto" onClick={()=>setRouter(3)}>sign up</a>
-                      <a href="#" className="text-blue-400 lg:margin-right:50%  lg:margin-left:auto" onClick={()=>setRouter(8)}>forgot password</a>
+                      <div className="flex justify-between grid grow xs:grid-cols-1">
+                      <a href="#" className="text-blue-400 ml-10" onClick={()=>setRouter(3)}>sign up</a>
+                      <a href="#" className="text-blue-400 ml-10" onClick={()=>setRouter(8)}>forgot password</a>
 
                       </div>
                   </div>
                   <Button type="submit">
                       Login
                   </Button>
-                  <a className="text-blue-400 text-sm text-end" style={{cursor:"pointer"}} onClick={()=>setRouter(0)}>Skip Login/Sign Up</a>
+                  <a className="text-blue-400 text-sm text-end" style={{cursor:"pointer"}} onClick={()=>window.location.reload()}>Skip Login/Sign Up</a>
                 </form>
             </Card>
           </div>

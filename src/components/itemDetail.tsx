@@ -36,16 +36,17 @@ const ItemDetail:React.FC<IItemDetail> = ({item,category})=>{
             case ICategory.POWER:
                 return;
             case ICategory.CONNECTION:
-                return <p className="ml-3">Your new connection,{_item.first_name +_item.last_name } grew your network by {_item.total_member}</p>
+                // return <p className="ml-3">Currently, Your new connection, <b>{_item.first_name + " " +_item.last_name }</b> Acc grew your network by 1. <br></br>New: Your invited connections grew your network to <b>{_item.total_member}</b></p>
+                return <p className="ml-3"> Your invited connections grew your network to <b>{_item.total_member}</b></p>
             case ICategory.JOIN_NETWORK:
-                return <p className="ml-3">{_item.username} joined your network</p>
+                return <p className="ml-3"><b>{_item.first_name + " " +_item.last_name }</b> joined your network</p>
             case ICategory.GROWMONTH:
                 return <p className="ml-3">Your network grew by {_item} members in {monthNames[new Date().getMonth()]}</p>
             case ICategory.GROWWEEK:
                     return <p className="ml-3">Conguratulations! Your network grew by {_item} members this week</p>
                 
             case ICategory.NOTIFICATION:
-                    return(<div className="flex"><p className="ml-3">{_item.text}</p><a className="text-blue-300" href={_item.link}>{_item.link}</a></div>)
+                    return(<div className="flex ml-3"><a className="text-blue-300" target="_blank" href={_item.link}>{_item.text}</a></div>)
                
             default:
                 return;

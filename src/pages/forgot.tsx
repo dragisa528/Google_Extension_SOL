@@ -38,7 +38,7 @@ const Forgot  = ()=>{
         setRouter(5);
     }
    return(
-    <div className="container mx-auto min-h-screen max-h-screen flex justify-center">
+    <div className="lg:container mx-auto min-h-screen max-h-screen flex justify-center">
         <div className="my-auto h-full  w-full max-w-[500px] mx-auto shadow-xl ">
             <Card>
                 <div >
@@ -47,7 +47,7 @@ const Forgot  = ()=>{
                         <TextInput
                             id="email2"
                             type="email"
-                            placeholder="name@flowbite.com"
+                            placeholder="email@yourdomain"
                             required={true}
                             shadow={true}
                             onChange={(e:any)=>{setEmail(e.target.value);}}

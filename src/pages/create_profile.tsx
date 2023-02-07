@@ -209,7 +209,7 @@ const Profile  = ()=>{
                                         <TextInput
                                             id="email1"
                                             type="email"
-                                            placeholder="name@flowbite.com"
+                                            placeholder="email@yourdomain"
                                             disabled
                                             value={isAccountInit?email:""}
                                         />
@@ -240,12 +240,9 @@ const Profile  = ()=>{
                         <Button type="submit">
                              Save
                         </Button>
-                        {
-                            isAccountInit&&
-                            <Button color={"failure"} onClick={()=>handleBack()}>
+                            <Button color={"failure"} onClick={()=>(isAccountInit?handleBack():localStorage.removeItem("jwt"), window.location.reload())}>
                                 Back
                             </Button>
-                        }
                     </form>
                 </Card>
             </div>

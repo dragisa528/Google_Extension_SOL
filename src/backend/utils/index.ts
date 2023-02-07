@@ -17,7 +17,11 @@ export const Api = {
     getBack:"/auth/getBack",
     forgot_mail:"/auth/forgot_mail",
     getExtension:"/admin/getExtension",
-    getCards:"/admin/getCardList"
+    getTitle:"/admin/getTitle",
+    set_password:"/auth/setNewPassword",
+    accept_invite:"/invite/accept",
+    getCards:"/admin/getCardList",
+    invite_sign_up:"/invite/sign_up"
 }
 // host_url:'http://sol.dypole.com/',
 //     base_url:"http://sol.dypole.com/api",

@@ -10,18 +10,17 @@ const Climate = ()=>{
     const {notification} = useNotificationContext();
     return(
         <div>
-        <Card onClick={()=>{setIsDetail(!isDetail)}}>
+        <Card style={{cursor:'pointer'}} onClick={()=>{setIsDetail(!isDetail)}}>
             <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                    <img src={images.RaiseSqareIcon} alt="" className="w-12 h-8" />
+                    <img src={images.RaiseSqareIcon} alt="" className="w-8 h-6" />
                     <div className="ml-3">
                         <p className="text-gray-500 text-xs whitespace-nowrap">Climate Trends</p>
                     </div>
                     
                 </div>
                 <div>
-                    <img src={images.LIcon} alt="" className="w-12 mx-auto" />
-                    <p className="text-sm text-gray-400 whitespace-nowrap text-center">Tap to read</p>
+                    <img src={images.LIcon} alt="" className="w-8 mx-auto" />
                 </div>
                 
             </div>

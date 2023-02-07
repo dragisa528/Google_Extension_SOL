@@ -1,6 +1,6 @@
 // import {SendJsonMessage} from 'react-use-websocket';
 
-export  enum PARKET_TYPE {
+export enum PARKET_TYPE {
     INIT = "init",
     ALL_NOTE = "all_note",
     FOR_USER = 'for_user'

@@ -1,5 +1,6 @@
 import React, { useState,createContext, useContext, useEffect } from "react"
 import { getExtension } from "../backend/utils/api";
+import { getTitle } from "../backend/utils/api";
 import { IProjectForAny } from "../pages/project";
 import { useAuthContext } from "./auth_provider";
 import { toast } from 'react-toastify';
@@ -16,6 +17,7 @@ export type IRouterContext ={
     start:number;
     setStart:(num:number)=>void;
     extensionUrl:string;
+    titleName:string;
 }
 const RouterContext = createContext<IRouterContext>({} as IRouterContext);
 const RouterProvider = ({children = null as any})=>{
@@ -26,6 +28,7 @@ const RouterProvider = ({children = null as any})=>{
     const [searchType,setSearchType] = useState<string>("");
     const [start,setStart] = useState<number>(0);
     const [extensionUrl,setExtensionUrl] = useState<string>("");
+    const [titleName, setTitleName] = useState<string>("");
     const viewProject = (project:IProjectForAny|null)=>{
         setCurProject(project);
         setRouterId(6);
@@ -42,8 +45,21 @@ const RouterProvider = ({children = null as any})=>{
             }
         })
     }
+
+    const getTitleName = ()=>{
+        getTitle((error:any)=>{
+            toast.error(error);
+            return
+        }).then((res:any)=>{
+            if(!res) return;
+            if(res.data.status){
+                setTitleName(res.data.url);
+            }
+        })
+    }
     useEffect(()=>{
         getExtensionUrl();
+        getTitleName();
     },[])
     useEffect(()=>{
         if(!isAnymouse){
@@ -53,7 +69,7 @@ const RouterProvider = ({children = null as any})=>{
                 else setRouterId(0) //home page
             }
         }else{
-            setRouterId(0);
+            setRouterId(0); //home page
         }
     },[isAuth,isAccountInit,isAnymouse])
 
@@ -69,7 +85,8 @@ const RouterProvider = ({children = null as any})=>{
         setSearchType:setSearchType,
         start:start,
         setStart:setStart,
-        extensionUrl:extensionUrl
+        extensionUrl:extensionUrl,
+        titleName:titleName
     };
     return(
         <RouterContext.Provider value={value}>

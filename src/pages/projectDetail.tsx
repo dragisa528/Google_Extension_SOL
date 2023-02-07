@@ -8,7 +8,7 @@ const ProjectDetail = ()=>{
     const {curProject,setRouter} = useRouterContext();
     const [isShowen,setIsShowen]= useState<boolean>(false);
     const [isPaly,setIsPaly] = useState<boolean>(false);
-    const {title,progress,goal,budget,activist,image,spportCount,allocate_budget,project_id,description,user_img,total_power,city,country,state,publish_at,isSupport,link} = curProject;
+    const {title,progress,goal,budget,activist,image,supportCount,allocate_budget,project_id,description,user_img,total_power,city,country,state,publish_at,isSupport,link} = curProject;
     
     return(
         <div className='container mx-auto flex justify-center min-h-screen py-5'>
@@ -33,7 +33,7 @@ const ProjectDetail = ()=>{
                             </div>
                             <div className='text-center'>
                                 <h2>Total Power</h2>
-                                <p>{total_power}KWH</p>
+                                <p>{total_power}kWh</p>
                             </div>
                         </div>
                         <div className='w-full my-2'>
@@ -55,7 +55,7 @@ const ProjectDetail = ()=>{
                             }
                         </div>
                         
-                            <p>Supporters: {spportCount?spportCount:0}</p>
+                            <p>Supporters: {supportCount?supportCount:0}</p>
                         
                         <div className='flex gap-4 items-center my-2'>
                             {
