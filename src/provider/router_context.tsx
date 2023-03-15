@@ -62,7 +62,9 @@ const RouterProvider = ({children = null as any})=>{
         getTitleName();
     },[])
     useEffect(()=>{
+        console.log(";;;;;;;;;;isAtuh",isAuth)
         if(!isAnymouse){
+            console.log(";;;;;;;;;;isAtuh",isAuth)
             if(!isAuth) setRouterId(5) //login page
             else {
                 if(!isAccountInit) setRouterId(4) //create profile page

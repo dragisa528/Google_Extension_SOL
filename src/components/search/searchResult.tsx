@@ -9,6 +9,7 @@ import GoogleAd from '../GoogleAd';
 export default function SearchResult({results, searchType}:{results:any,searchType:any}){
     useEffect(()=>{
         document.getElementById("Footer")!.style!.position='relative';
+        console.log(results, "search result")
     },[])
 
     // componentDidMount () {

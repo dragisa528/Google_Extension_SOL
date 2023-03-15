@@ -13,7 +13,7 @@ const Login  = ()=>{
     const [toastContent,setToastContent]= useState<string>("");
     const [email,setEmail] = useState<string>("");
     const [password,setPassword] = useState<string>("");
-    const {setIsAuth} = useAuthContext();
+    const {setIsAuth,isAnymouse} = useAuthContext();
     const submitForm =(event:React.FormEvent<HTMLFormElement>)=>{
       event.preventDefault();
       const data ={
@@ -32,8 +32,10 @@ const Login  = ()=>{
         if(!res) return;
         if(res.data.status){
           // setCookie('jwt',res.data.token);
+          console.log("isAnymouse",isAnymouse)
           localStorage.setItem("jwt",res.data.token);
           setIsAuth(true);
+          window.location.reload();
         }else{
           setIsToastShow(true);
           setToastContent(res.data.message);

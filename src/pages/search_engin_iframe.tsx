@@ -26,7 +26,6 @@ const SearchEngineIframe = ()=>{
             : fetch( 
                 location
             ).then(async (response) =>{
-                
                 setResults({data:await response.json(),isImageSearch:imageSearch})
                 return;
             });

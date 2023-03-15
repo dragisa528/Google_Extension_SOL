@@ -8,8 +8,9 @@ import {HiInformationCircle} from "react-icons/hi"
 import { InviteSignUpRequst } from "../backend/utils/api";
 
 function InviteSignUp() {
-    const {id} = useParams(); //hash value
-     // const []
+     const {id} = useParams(); //hash value
+     const [userId,setUserId] = useState(id);
+     const [timestamp, setTimestamp] = useState(new Date().getTime())
      const navigate = useNavigate();
      const [isSent ,setIsSent]= useState<Boolean>(false);
      const [isSuccess,setIsSuccess] = useState<Boolean>(false);
@@ -60,21 +61,31 @@ function InviteSignUp() {
             setRouter(5); 
         });
      }
+
     useEffect(()=>{
         if(id){
             AcceptRequest({id:id},(error:string)=>{
             toast.error(error);
         }).then((res)=>{
+            console.log('AcceptRequest Res ===', res);
             if(!res) return;
             if(typeof res === "string") return;
-            if(!res.data.status){
+            if(res.data.status){
                 setEmail(res.data.data.email);
-                // toast.success(res.data.message);
+                // console.log(res.data.data.email, "from DATA EMAIL")
+                // console.log(email, "EMAIL")
+                // window.location.reload()
             }
             })
         }
         
     },[])
+
+    // useEffect(()=>{
+    //   const queryParameters = new URLSearchParams(window.location.search);
+    //   const _id = queryParameters.get('id');
+    //   setUserId(_id?.toString());
+    // }, [timestamp])
 
     return(
         <div className="lg:container md:container mx-auto flex justify-center min-h-screen max-screen-h">

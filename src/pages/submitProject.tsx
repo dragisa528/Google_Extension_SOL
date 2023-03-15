@@ -3,10 +3,9 @@ import { toast } from "react-toastify";
 import { Label,TextInput,Checkbox,Button, Card,Avatar,FileInput, Alert} from "flowbite-react";
 import { submitProject } from "../backend/utils/api";
 import { useAuthContext } from '../provider/auth_provider';
-import { useNavigate, useNavigation, useParams } from "react-router-dom";
+// import { useNavigate, useNavigation, useParams } from "react-router-dom";
 
 const SubmitProject =()=>{
-  const navigate = useNavigate();
   const [isAvatarValid,setIsAvatarValid] = useState<boolean>(false)
   const [title,setTitle]                 = useState<string>("");
   const [curFile,setCurFile]             = useState<File|null>(null);
@@ -158,7 +157,7 @@ const SubmitProject =()=>{
                 Check to indicate that you agree to the{' '}
                   <a
                     style={{cursor:"pointer"}}
-                    onClick={()=>navigate("/terms-and-conditions")}
+                    onClick={()=>window.open("/terms-and-conditions")}
                     className="text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Terms and Conditions
@@ -166,7 +165,7 @@ const SubmitProject =()=>{
                 {' '}and{' '}
                   <a
                     style={{cursor:"pointer"}}
-                    onClick={()=>navigate("/privacy-policy")}
+                    onClick={()=>window.open("/privacy-policy")}
                     className="text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Privacy Policy

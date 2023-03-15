@@ -69,7 +69,7 @@ const ProjectDetail = ()=>{
                         </div>
                         <div className='my-2'>
                             <h3>Description</h3>
-                            <p className='p-2 w-full'>
+                            <p className='p-2 w-full' style={{maxHeight:'300px', overflow:'scroll'}}>
                                 {description}
                             </p>
                         </div>

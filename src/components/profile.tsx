@@ -105,9 +105,9 @@ const Profile:React.FC<IProfile> = ({image,name,account_type,...props})=>{
                         <div>
                             {
                             supportProjects?.map((item:any,index:any)=>{
-                                console.log(supportProjects, "Support~")
+                                console.log(item, "suport~")
                                     return(
-                                        <ProjectProfileItem key={index} img={item.img_url} title={item.title} detail={item.description} allocate_budget={item.allocate_budget} budget={item.budget} total_power={item.total_power}/>
+                                        <ProjectProfileItem key={index} item={item}/>
                                     )
                                 })
                             }

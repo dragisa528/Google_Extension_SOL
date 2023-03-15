@@ -41,7 +41,6 @@ const Main  = ()=>{
         setInviteShow(false);
         toast.error(error);
       }).then(res=>{
-        console.log(res, "RES-Invite")
         setInviteShow(false);
         if(!res)return;
         if(res.data.status){
